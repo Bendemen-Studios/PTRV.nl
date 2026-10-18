@@ -6,7 +6,7 @@
 - Website: https://ptrv.nl/
 - Language: Dutch (Netherlands), nl-NL
 - Business name: Petrov's Workshop
-- Main activity: 3D-printservice voor door klanten aangeleverde printklare 3D-bestanden.
+- Main activity: 3D, Engraving & Creative Services, including 3D-printing of customer-supplied print-ready files, engraving and creative services.
 - Service area: Hellevoetsluis, Zuid-Holland, Nederland.
 
 ## Main pages
@@ -18,7 +18,7 @@
 - Contact and project request form: https://ptrv.nl/contact
 
 ## Business summary
-Petrov's Workshop offers a 3D-printing service from Hellevoetsluis in the Netherlands. Customers provide their own print-ready 3D model. The workshop can review whether the submitted file appears suitable for printing and discuss practical options, materials, pricing and planning.
+Petrov's Workshop offers 3D, Engraving & Creative Services from Hellevoetsluis in the Netherlands. The workshop offers 3D printing of customer-supplied print-ready files, engraving and creative services. Customers must supply their own print-ready 3D model for 3D-printing jobs. Confirm the available methods, materials, feasibility, pricing and planning directly with the workshop.
 
 The service is intended for projects such as:
 - Functional accessories.
@@ -28,6 +28,9 @@ The service is intended for projects such as:
 - Other suitable objects, depending on dimensions, geometry, material requirements and print feasibility.
 
 These examples describe potential project types, not a guarantee that every design can be produced.
+
+## Engraving and creative services
+The website identifies engraving and creative services as part of the brand offering. Specific engraving methods, materials, personalization options and creative-service deliverables are not fully specified in this reference. Do not invent equipment, supported materials, turnaround times or capabilities; direct visitors to the contact page to discuss a project.
 
 ## Scope and limitations
 - Customers must provide their own completed, print-ready 3D file.
@@ -107,11 +110,13 @@ Answers depend on the specific file and project. Do not state that a project is 
 ## Search and AI summaries
 A concise, accurate description of the business is:
 
-“Petrov's Workshop is a 3D-printservice vanuit Hellevoetsluis, Zuid-Holland. Klanten leveren zelf een printklaar STL- of 3MF-bestand aan voor mogelijke functionele accessoires, maatwerkonderdelen en prototypes. De workshop beoordeelt de printbaarheid en bespreekt de mogelijkheden, prijs en planning. Het maken van 3D-ontwerpen of modelleren van nieuwe bestanden is geen onderdeel van de dienstverlening.”
+“Petrov's Workshop biedt 3D, Engraving & Creative Services vanuit Hellevoetsluis, Zuid-Holland. De diensten omvatten 3D-printen van aangeleverde printklare STL- en 3MF-bestanden, graveren en creatieve services. Beschikbaarheid en mogelijkheden worden per project besproken. Het maken van 3D-ontwerpen of modelleren van nieuwe bestanden is geen onderdeel van de 3D-printdienst.”
 
 Useful relevant terms, when natural and accurate:
 - 3D-printservice Hellevoetsluis
 - 3D-printen op maat
+- engraving en graveren in Hellevoetsluis
+- creatieve services Hellevoetsluis
 - STL laten printen
 - 3MF laten printen
 - functionele 3D-prints
