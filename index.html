@@ -79,7 +79,10 @@
     .service h3{font-size:20px;letter-spacing:-.04em;margin:25px 0 11px}
     .service p{color:#89847b;font-size:12px;line-height:1.85;margin:0}
     .service .learn{display:inline-flex;margin-top:24px;color:var(--bright);text-decoration:none;font:10px 'DM Mono',monospace;letter-spacing:.08em}
-    .portfolio-shell{overflow:hidden;position:relative;border-block:1px solid var(--line);padding:18px 0}
+    .portfolio-shell{overflow:hidden;position:relative;border-block:1px solid var(--line);padding:18px 0;isolation:isolate}
+    .portfolio-shell:before,.portfolio-shell:after{content:"";position:absolute;top:0;bottom:0;width:clamp(36px,8vw,120px);z-index:2;pointer-events:none}
+    .portfolio-shell:before{left:0;background:linear-gradient(90deg,var(--black) 0%,rgba(3,3,3,.82) 28%,transparent 100%)}
+    .portfolio-shell:after{right:0;background:linear-gradient(270deg,var(--black) 0%,rgba(3,3,3,.82) 28%,transparent 100%)}
     .portfolio-track{display:flex;gap:0;width:max-content;animation:portfolio-scroll 14s linear infinite reverse;will-change:transform}
     .portfolio-shell:hover .portfolio-track,.portfolio-shell:focus-within .portfolio-track{animation-play-state:paused}
     .portfolio-card{width:clamp(240px,30vw,360px);aspect-ratio:1 / 1;height:auto;flex:0 0 auto;margin-right:18px;position:relative;overflow:hidden;border:1px solid var(--line);background:linear-gradient(145deg,#14110b,#050505);display:grid;place-items:center}
