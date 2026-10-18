@@ -307,13 +307,30 @@
       menuButton.textContent = 'MENU ☰';
     }));
     document.getElementById('year').textContent = new Date().getFullYear();
-    // Scroll naar interne secties zonder de #fragmenten in de adresbalk te zetten.
-    document.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener('click', event => {
-      const target = document.getElementById(link.getAttribute('href').slice(1));
+    // Gebruik nette URL-paden (/diensten) in plaats van URL-fragmenten (/#diensten).
+    const sectionIds = new Set(['top', 'diensten', 'portfolio', 'werkwijze', 'veelgevraagd', 'contact']);
+    function scrollToSection(id, behavior = 'smooth') {
+      const target = document.getElementById(id);
       if (!target) return;
+      target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : behavior, block: 'start' });
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener('click', event => {
+      const id = link.getAttribute('href').slice(1);
+      if (!sectionIds.has(id) || !document.getElementById(id)) return;
       event.preventDefault();
-      target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+      const nextPath = id === 'top' ? '/' : '/' + id;
+      if (window.location.pathname !== nextPath) history.pushState({ section: id }, '', nextPath);
+      scrollToSection(id);
     }));
+    function syncSectionFromPath() {
+      const slug = window.location.pathname.replace(/^\\/+|\\/+$/g, '');
+      const id = slug === '' ? 'top' : slug;
+      if (sectionIds.has(id)) scrollToSection(id, 'auto');
+    }
+    window.addEventListener('popstate', syncSectionFromPath);
+    if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+      requestAnimationFrame(syncSectionFromPath);
+    }
 
     // Laad alle afbeeldingen uit de map /portfolio via de openbare GitHub API.
     const portfolioTrack = document.getElementById('portfolio-track');
