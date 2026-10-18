@@ -1,0 +1,4 @@
+RewriteEngine On
+
+# Laat nette sectie-URL's doorlopen naar de one-page website.
+RewriteRule ^(diensten|portfolio|werkwijze|veelgevraagd|contact)/?$ /index.html [L]
