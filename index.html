@@ -80,9 +80,9 @@
     .service p{color:#89847b;font-size:12px;line-height:1.85;margin:0}
     .service .learn{display:inline-flex;margin-top:24px;color:var(--bright);text-decoration:none;font:10px 'DM Mono',monospace;letter-spacing:.08em}
     .portfolio-shell{overflow:hidden;position:relative;border-block:1px solid var(--line);padding:18px 0}
-    .portfolio-track{display:flex;gap:18px;width:max-content;animation:portfolio-scroll 42s linear infinite}
+    .portfolio-track{display:flex;gap:0;width:max-content;animation:portfolio-scroll 20s linear infinite;will-change:transform}
     .portfolio-shell:hover .portfolio-track,.portfolio-shell:focus-within .portfolio-track{animation-play-state:paused}
-    .portfolio-card{width:clamp(240px,30vw,360px);aspect-ratio:1 / 1;height:auto;flex:0 0 auto;position:relative;overflow:hidden;border:1px solid var(--line);background:linear-gradient(145deg,#14110b,#050505);display:grid;place-items:center}
+    .portfolio-card{width:clamp(240px,30vw,360px);aspect-ratio:1 / 1;height:auto;flex:0 0 auto;margin-right:18px;position:relative;overflow:hidden;border:1px solid var(--line);background:linear-gradient(145deg,#14110b,#050505);display:grid;place-items:center}
     .portfolio-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
     .portfolio-card:hover img{transform:scale(1.04)}
     .portfolio-card figcaption{position:absolute;inset:auto 0 0;padding:32px 16px 15px;background:linear-gradient(transparent,rgba(0,0,0,.9));color:#eee;font:10px 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase}
