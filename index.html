@@ -101,12 +101,24 @@
     details[open] summary:after{content:"−"}
     details p{margin:0;padding:0 30px 22px 0;color:#89847b;font-size:12px;line-height:1.85;max-width:620px}
     .contact-section{padding:0 0 105px}
-    .contact-panel{position:relative;overflow:hidden;border:1px solid var(--dim);padding:58px;display:flex;justify-content:space-between;align-items:center;gap:35px;background:radial-gradient(ellipse at 100% 10%,rgba(167,134,69,.12),transparent 48%),#070604}
-    .contact-panel:after{content:"P";position:absolute;right:22%;top:-110px;color:rgba(209,174,96,.035);font-weight:900;font-size:360px;line-height:1;pointer-events:none}
+    .contact-panel{position:relative;overflow:hidden;border:1px solid var(--dim);padding:45px;background:radial-gradient(ellipse at 100% 10%,rgba(167,134,69,.12),transparent 48%),#070604}
+    .contact-panel:after{content:"P";position:absolute;right:12%;top:-110px;color:rgba(209,174,96,.035);font-weight:900;font-size:360px;line-height:1;pointer-events:none}
     .contact-panel .section-label{position:relative;z-index:1}
     .contact-panel h2{position:relative;z-index:1;font-size:clamp(35px,5vw,55px);max-width:660px}
-    .contact-panel p{position:relative;z-index:1;color:#89847b;font-size:13px;line-height:1.8;max-width:500px}
-    .contact-panel .btn{position:relative;z-index:1;flex-shrink:0}
+    .contact-panel p{position:relative;z-index:1;color:#89847b;font-size:13px;line-height:1.8;max-width:650px}
+    .contact-form{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+    .form-field{display:flex;flex-direction:column;gap:8px}
+    .form-field.full{grid-column:1/-1}
+    .form-field label{font:10px 'DM Mono',monospace;letter-spacing:.1em;color:var(--bright);text-transform:uppercase}
+    .form-field input,.form-field textarea{width:100%;padding:14px 15px;border:1px solid var(--line);border-radius:0;background:#030303;color:var(--white);font:13px Inter,system-ui,sans-serif;outline:none}
+    .form-field input:focus,.form-field textarea:focus{border-color:var(--gold)}
+    .form-field input[type=file]{font-size:11px;color:var(--muted)}
+    .form-field textarea{min-height:140px;resize:vertical;line-height:1.7}
+    .form-hint{color:#777168;font-size:11px;line-height:1.6}
+    .form-actions{grid-column:1/-1;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+    .form-status{font-size:12px;color:var(--bright);min-height:18px}
+    .form-submit{cursor:pointer}
+    .form-submit:disabled{opacity:.6;cursor:wait}
     footer{border-top:1px solid var(--line);padding:28px 0 35px;display:flex;align-items:center;justify-content:space-between;gap:25px}
     .foot-left{color:#777168;font-size:11px}.foot-left strong{color:var(--bright)}
     .foot-links{display:flex;gap:20px;flex-wrap:wrap}.foot-links a{color:#807969;text-decoration:none;font:10px 'DM Mono',monospace}.foot-links a:hover{color:var(--bright)}
@@ -234,8 +246,15 @@
 
     <section class="contact-section" id="contact">
       <div class="contact-panel reveal">
-        <div><div class="section-label">04 / JOUW IDEE START HIER</div><h2>Klaar om iets te maken?</h2><p>Stuur je eigen 3D-bestand mee, samen met het beoogde gebruik, de gewenste afmetingen en eventuele materiaalvoorkeuren. We maken geen designs; je levert het ontwerp zelf aan.</p></div>
-        <a class="btn btn-primary" href="mailto:ben@justpetrov.com?subject=3D-printopdracht%20%E2%80%94%20Petrov%27s%20Workshop">Neem contact op <span>↗</span></a>
+        <div><div class="section-label">04 / JOUW IDEE START HIER</div><h2>Klaar om iets te maken?</h2><p>Vul het formulier in en vertel wat je wilt laten printen. Je eigen 3D-bestand kun je optioneel meesturen als STL of 3MF. We maken geen designs of 3D-modellen.</p></div>
+        <form class="contact-form" id="contact-form" enctype="multipart/form-data">
+          <div class="form-field"><label for="name">Naam *</label><input id="name" name="name" type="text" autocomplete="name" required maxlength="120"></div>
+          <div class="form-field"><label for="email">E-mailadres *</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="254"></div>
+          <div class="form-field"><label for="phone">Telefoonnummer *</label><input id="phone" name="phone" type="tel" autocomplete="tel" required maxlength="40"></div>
+          <div class="form-field full"><label for="idea">Idee / opdracht *</label><textarea id="idea" name="idea" required maxlength="6000" placeholder="Beschrijf wat je wilt laten printen, de gewenste afmetingen en waarvoor je het gaat gebruiken."></textarea></div>
+          <div class="form-field full"><label for="file">3D-bestand (optioneel)</label><input id="file" name="file" type="file" accept=".stl,.3mf,model/stl,application/vnd.ms-3mfdocument" aria-describedby="file-hint"><span class="form-hint" id="file-hint">Alleen STL- en 3MF-bestanden, maximaal 10 MB. Het bestand is optioneel.</span></div>
+          <div class="form-actions"><button class="btn btn-primary form-submit" type="submit">Verstuur aanvraag <span>↗</span></button><span class="form-status" id="form-status" role="status" aria-live="polite"></span></div>
+        </form>
       </div>
     </section>
   </main>
@@ -258,6 +277,34 @@
       menuButton.textContent = 'MENU ☰';
     }));
     document.getElementById('year').textContent = new Date().getFullYear();
+    // Scroll naar interne secties zonder de #fragmenten in de adresbalk te zetten.
+    document.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener('click', event => {
+      const target = document.getElementById(link.getAttribute('href').slice(1));
+      if (!target) return;
+      event.preventDefault();
+      target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+    }));
+
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      const status = document.getElementById('form-status');
+      const submit = contactForm.querySelector('button[type="submit"]');
+      status.textContent = 'Aanvraag wordt verstuurd…';
+      submit.disabled = true;
+      try {
+        const response = await fetch('/api/contact', { method: 'POST', body: new FormData(contactForm) });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(result.error || 'Versturen is niet gelukt. Probeer het later opnieuw.');
+        contactForm.reset();
+        status.textContent = 'Bedankt! Je aanvraag is verstuurd.';
+      } catch (error) {
+        status.textContent = error.message || 'Er ging iets mis. Probeer het later opnieuw.';
+      } finally {
+        submit.disabled = false;
+      }
+    });
+
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
