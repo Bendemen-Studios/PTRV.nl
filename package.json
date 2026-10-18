@@ -1,0 +1,9 @@
+{
+  "name": "ptrv-workshop-site",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "formidable": "^3.5.2",
+    "nodemailer": "^6.9.16"
+  }
+}
