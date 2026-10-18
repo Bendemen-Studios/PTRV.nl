@@ -404,7 +404,7 @@
       scrollToSection(id);
     }));
     function syncSectionFromPath() {
-      const slug = window.location.pathname.replace(/^\\/+|\\/+$/g, '');
+      const slug = window.location.pathname.replace(/^\/+|\/+$/g, '');
       const id = slug === '' || slug === 'index.html' ? 'top' : slug;
       if (sectionIds.has(id)) {
         setActiveSection(id);
