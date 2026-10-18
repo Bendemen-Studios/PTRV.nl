@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#030303">
+  <meta name="description" content="Petrov's Workshop — 3D-printservice voor maatwerk, handige accessoires, prototypes en unieke ideeën. Van idee naar tastbaar ontwerp.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Petrov's Workshop — Ideeën worden werkelijkheid">
+  <meta property="og:description" content="Persoonlijke 3D-printservice voor maatwerk en creatieve ideeën.">
+  <meta property="og:site_name" content="Petrov's Workshop">
+  <title>Petrov's Workshop — 3D-printservice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{color-scheme:dark;--black:#030303;--surface:#080705;--gold:#a78645;--bright:#d1ae60;--soft:#806735;--dim:#5d4a29;--line:#292318;--muted:#88847c;--white:#eee;--content:1180px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:100px}
+    body{margin:0;background:var(--black);color:var(--white);font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+    a{color:inherit}
+    .grain{position:fixed;inset:0;pointer-events:none;opacity:.035;z-index:20;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E")}
+    .nav{position:fixed;top:0;left:0;right:0;height:82px;display:flex;align-items:center;justify-content:space-between;padding:0 max(24px,calc((100vw - var(--content))/2));background:rgba(3,3,3,.88);border-bottom:1px solid var(--line);backdrop-filter:blur(14px);z-index:10}
+    .nav:after{content:"";position:absolute;bottom:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.5}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .brand-mark{width:40px;height:40px;border:1px solid var(--gold-dim);display:grid;place-items:center;color:var(--bright);font-weight:900;font-size:19px;letter-spacing:-.08em;position:relative}
+    .brand-mark:after{content:"";position:absolute;inset:4px;border:1px solid rgba(209,174,96,.22)}
+    .brand-name{font-weight:800;font-size:13px;letter-spacing:.01em}
+    .brand-name small{display:block;margin-top:4px;font:9px 'DM Mono',monospace;letter-spacing:.15em;color:var(--bright)}
+    .nav-links{display:flex;align-items:center;gap:30px}
+    .nav-links a{font:10px 'DM Mono',monospace;letter-spacing:.1em;text-decoration:none;color:var(--muted);transition:color .2s}
+    .nav-links a:hover{color:var(--bright)}
+    .nav-links .nav-cta{padding:12px 15px;border:1px solid var(--dim);color:var(--bright)}
+    .menu-toggle{display:none;background:none;border:1px solid var(--line);color:var(--bright);padding:10px 12px;font:10px 'DM Mono',monospace}
+    main,footer{width:min(var(--content),calc(100% - 48px));margin:0 auto}
+    .hero{min-height:790px;padding:160px 0 100px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:55px;position:relative}
+    .hero:before{content:"";position:absolute;top:118px;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--gold),transparent 68%);opacity:.75}
+    .eyebrow{display:flex;align-items:center;gap:11px;font:10px 'DM Mono',monospace;letter-spacing:.19em;color:var(--bright);text-transform:uppercase;margin-bottom:28px}
+    .eyebrow:before{content:"";width:26px;height:1px;background:var(--bright)}
+    h1{font-size:clamp(58px,7vw,94px);line-height:.91;letter-spacing:-.075em;font-weight:900;margin:0;max-width:700px}
+    h1 span{display:block;color:var(--bright)}
+    .hero-copy{max-width:500px;color:#928d83;font-size:15px;line-height:1.85;margin:27px 0 0}
+    .hero-copy strong{color:#eee;font-weight:600}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+    .btn{min-height:48px;padding:14px 19px;display:inline-flex;align-items:center;justify-content:center;gap:20px;text-decoration:none;text-transform:uppercase;font:10px 'DM Mono',monospace;letter-spacing:.1em;transition:transform .2s,background .2s,border .2s}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--bright);border:1px solid var(--bright);color:#080705;font-weight:500}
+    .btn-primary:hover{background:#e2c477}
+    .btn-secondary{border:1px solid var(--dim);color:var(--bright)}
+    .btn-secondary:hover{border-color:var(--bright);background:rgba(209,174,96,.06)}
+    .micro-note{margin-top:23px;color:#625d53;font:10px 'DM Mono',monospace;letter-spacing:.04em}
+    .visual{min-height:490px;position:relative;display:grid;place-items:center;isolation:isolate}
+    .visual-grid{position:absolute;inset:4% 0;background-image:linear-gradient(rgba(167,134,69,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(167,134,69,.1) 1px,transparent 1px);background-size:34px 34px;mask-image:radial-gradient(ellipse at center,#000 12%,transparent 74%);z-index:-2}
+    .orb{position:absolute;width:min(420px,95%);aspect-ratio:1;border:1px solid rgba(209,174,96,.22);border-radius:50%;box-shadow:0 0 80px rgba(167,134,69,.06),inset 0 0 55px rgba(167,134,69,.04);transform:rotate(-22deg)}
+    .orb:before,.orb:after{content:"";position:absolute;inset:9%;border:1px solid rgba(209,174,96,.16);border-radius:50%;transform:rotate(54deg) scaleX(.56)}
+    .orb:after{transform:rotate(-54deg) scaleX(.56)}
+    .model{width:min(340px,80%);position:relative;filter:drop-shadow(0 25px 26px rgba(0,0,0,.75));animation:float 6s ease-in-out infinite}
+    .visual-tag{position:absolute;padding:13px 15px;background:rgba(6,5,3,.85);border:1px solid var(--line);backdrop-filter:blur(8px)}
+    .visual-tag strong{display:block;color:var(--bright);font:10px 'DM Mono',monospace;letter-spacing:.12em}
+    .visual-tag span{display:block;color:var(--muted);font-size:10px;margin-top:7px}
+    .tag-top{top:8%;right:0}.tag-bottom{left:0;bottom:10%}
+    .coordinates{position:absolute;right:2px;bottom:2px;font:9px 'DM Mono',monospace;color:#4d4637;letter-spacing:.12em}
+    .ticker{border-block:1px solid var(--line);overflow:hidden;background:#060504}
+    .ticker-inner{display:flex;align-items:center;justify-content:space-around;gap:34px;min-width:max-content;padding:19px 0;color:#a59c8b;font:10px 'DM Mono',monospace;letter-spacing:.16em;text-transform:uppercase}
+    .ticker-inner span{display:flex;align-items:center;gap:12px}.ticker-inner b{color:var(--bright);font-size:14px}
+    section.content-section{padding:105px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:42px}
+    .section-label{font:10px 'DM Mono',monospace;letter-spacing:.18em;color:var(--bright);text-transform:uppercase;margin-bottom:16px}
+    h2{font-size:clamp(35px,5vw,57px);letter-spacing:-.06em;line-height:1;margin:0;font-weight:800}
+    h2 span{color:#777168}
+    .section-intro{max-width:390px;color:#8d887e;font-size:13px;line-height:1.85;margin:0}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+    .service{background:var(--black);padding:31px 28px 32px;min-height:275px;transition:background .25s}
+    .service:hover{background:var(--surface)}
+    .service-no{font:10px 'DM Mono',monospace;color:var(--soft);display:flex;align-items:center;justify-content:space-between;padding-bottom:23px;border-bottom:1px dotted #3c3222}
+    .service-no span:last-child{color:var(--bright);font-size:17px}
+    .service h3{font-size:20px;letter-spacing:-.04em;margin:25px 0 11px}
+    .service p{color:#89847b;font-size:12px;line-height:1.85;margin:0}
+    .service .learn{display:inline-flex;margin-top:24px;color:var(--bright);text-decoration:none;font:10px 'DM Mono',monospace;letter-spacing:.08em}
+    .process{display:grid;grid-template-columns:.8fr 1.2fr;gap:75px;align-items:start}
+    .process-intro p{max-width:360px;color:#89847b;font-size:13px;line-height:1.9;margin:22px 0 0}
+    .steps{border-top:1px solid var(--line)}
+    .step{display:grid;grid-template-columns:54px 1fr;gap:18px;padding:24px 0;border-bottom:1px solid var(--line)}
+    .step-no{width:39px;height:39px;display:grid;place-items:center;border:1px solid var(--dim);color:var(--bright);font:11px 'DM Mono',monospace}
+    .step h3{margin:1px 0 8px;font-size:16px;letter-spacing:-.02em}
+    .step p{margin:0;color:#89847b;max-width:530px;font-size:12px;line-height:1.8}
+    .feature-band{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:center;border:1px solid var(--line);padding:45px;background:linear-gradient(125deg,rgba(167,134,69,.075),transparent 56%)}
+    .feature-mark{display:flex;justify-content:center;align-items:center;min-height:235px;position:relative;border:1px solid rgba(167,134,69,.15);background:rgba(0,0,0,.25);overflow:hidden}
+    .feature-mark:before{content:"";position:absolute;width:220px;aspect-ratio:1;border:1px solid var(--dim);border-radius:50%;box-shadow:0 0 70px rgba(209,174,96,.08)}
+    .cube{width:100px;height:100px;position:relative;transform:rotate(-30deg) skew(8deg,8deg);background:linear-gradient(135deg,#d1ae60 0 49%,#8e6e35 50%);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);filter:drop-shadow(0 10px 25px rgba(209,174,96,.22))}
+    .feature-copy h2{font-size:clamp(30px,4vw,43px);line-height:1.03}
+    .feature-copy p{color:#89847b;font-size:13px;line-height:1.9;margin:18px 0 0}
+    .feature-copy .btn{margin-top:23px}
+    .faq-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:70px}
+    .faq-intro p{color:#89847b;font-size:13px;line-height:1.85}
+    details{border-bottom:1px solid var(--line)}
+    details:first-child{border-top:1px solid var(--line)}
+    summary{cursor:pointer;list-style:none;position:relative;padding:22px 36px 22px 0;font-size:14px;font-weight:600}
+    summary::-webkit-details-marker{display:none}
+    summary:after{content:"+";position:absolute;right:3px;top:17px;color:var(--bright);font:24px 'DM Mono',monospace}
+    details[open] summary:after{content:"−"}
+    details p{margin:0;padding:0 30px 22px 0;color:#89847b;font-size:12px;line-height:1.85;max-width:620px}
+    .contact-section{padding:0 0 105px}
+    .contact-panel{position:relative;overflow:hidden;border:1px solid var(--dim);padding:58px;display:flex;justify-content:space-between;align-items:center;gap:35px;background:radial-gradient(ellipse at 100% 10%,rgba(167,134,69,.12),transparent 48%),#070604}
+    .contact-panel:after{content:"P";position:absolute;right:22%;top:-110px;color:rgba(209,174,96,.035);font-weight:900;font-size:360px;line-height:1;pointer-events:none}
+    .contact-panel .section-label{position:relative;z-index:1}
+    .contact-panel h2{position:relative;z-index:1;font-size:clamp(35px,5vw,55px);max-width:660px}
+    .contact-panel p{position:relative;z-index:1;color:#89847b;font-size:13px;line-height:1.8;max-width:500px}
+    .contact-panel .btn{position:relative;z-index:1;flex-shrink:0}
+    footer{border-top:1px solid var(--line);padding:28px 0 35px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+    .foot-left{color:#777168;font-size:11px}.foot-left strong{color:var(--bright)}
+    .foot-links{display:flex;gap:20px;flex-wrap:wrap}.foot-links a{color:#807969;text-decoration:none;font:10px 'DM Mono',monospace}.foot-links a:hover{color:var(--bright)}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
+    @keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(1deg)}}
+    @media(max-width:900px){:root{--content:760px}.nav{height:72px;padding:0 22px}.menu-toggle{display:block}.nav-links{display:none;position:absolute;top:71px;left:0;right:0;padding:20px 24px 25px;background:rgba(3,3,3,.98);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}.nav-links.open{display:flex}.nav-links a{padding:15px 0;border-bottom:1px solid var(--line-soft)}.nav-links .nav-cta{text-align:center;margin-top:12px;padding:14px}.hero{padding-top:125px;min-height:auto;grid-template-columns:1fr;gap:10px}.hero:before{top:100px}.hero-copy{max-width:600px}.visual{min-height:420px}.model{width:min(310px,70%)}.tag-top{right:4%}.tag-bottom{left:4%}.services{grid-template-columns:1fr 1fr}.process{grid-template-columns:1fr;gap:35px}.feature-band{padding:30px;gap:25px}.faq-grid{grid-template-columns:1fr;gap:30px}.contact-panel{padding:38px;align-items:flex-start;flex-direction:column}.contact-panel .btn{margin-top:3px}}
+    @media(max-width:560px){main,footer{width:calc(100% - 36px)}.nav{padding:0 18px}.brand-mark{width:36px;height:36px}.hero{padding-top:117px;padding-bottom:56px}.hero:before{top:95px}h1{font-size:clamp(53px,14.5vw,78px)}.hero-copy{font-size:13px}.actions{gap:9px}.btn{flex:1;padding:13px 12px;gap:10px;font-size:9px}.visual{min-height:340px}.orb{width:290px}.model{width:235px}.visual-tag{padding:10px 11px}.tag-top{top:2%}.tag-bottom{bottom:4%}.coordinates{font-size:8px}.ticker-inner{padding:15px 0;gap:24px}.ticker-inner span{gap:8px}.content-section{padding:72px 0!important}.section-head{align-items:flex-start;flex-direction:column;gap:17px;margin-bottom:29px}.section-intro{font-size:12px}.services{grid-template-columns:1fr}.service{min-height:0;padding:25px 22px}.service h3{margin-top:20px}.feature-band{grid-template-columns:1fr;padding:20px}.feature-mark{min-height:180px}.feature-copy{padding:8px 2px 3px}.feature-copy h2{font-size:34px}.faq-grid{gap:20px}.contact-section{padding-bottom:70px}.contact-panel{padding:27px 22px}.contact-panel h2{font-size:37px}.contact-panel p{font-size:12px}footer{align-items:flex-start;flex-direction:column;padding:25px 0 30px;gap:17px}.foot-links{gap:15px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Petrov's Workshop — home">
+      <span class="brand-mark">P.</span>
+      <span class="brand-name">PETROV'S WORKSHOP<small>3D PRINTING SERVICE</small></span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">MENU ☰</button>
+    <nav class="nav-links" id="nav-links" aria-label="Hoofdnavigatie">
+      <a href="#diensten">DIENSTEN</a>
+      <a href="#werkwijze">WERKWIJZE</a>
+      <a href="#veelgevraagd">FAQ</a>
+      <a class="nav-cta" href="#contact">START JE PROJECT ↗</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="eyebrow">PETROV'S WORKSHOP · 3D PRINTING</div>
+        <h1>Jouw idee.<span>Echt gemaakt.</span></h1>
+        <p class="hero-copy">Van een slim accessoire voor je setup tot een uniek ontwerp op maat. <strong>Petrov's Workshop</strong> maakt van digitale ideeën tastbare objecten — met aandacht voor detail, pasvorm en afwerking.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#contact">Bespreek je idee <span>↗</span></a>
+          <a class="btn btn-secondary" href="#diensten">Ontdek de mogelijkheden <span>↓</span></a>
+        </div>
+        <p class="micro-note">MAATWERK · FUNCTIONELE PRINTS · CREATIEVE PROJECTEN</p>
+      </div>
+      <div class="visual" aria-label="Decoratieve illustratie geïnspireerd op een 3D-geprint object">
+        <div class="visual-grid"></div><div class="orb"></div>
+        <svg class="model" viewBox="0 0 360 390" role="img" aria-label="Gouden geometrisch 3D-model">
+          <defs>
+            <linearGradient id="front" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2d78c"/><stop offset=".48" stop-color="#bf994d"/><stop offset="1" stop-color="#6f5127"/></linearGradient>
+            <linearGradient id="side" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b78b3c"/><stop offset="1" stop-color="#45331b"/></linearGradient>
+            <linearGradient id="top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8e5ac"/><stop offset="1" stop-color="#ae843a"/></linearGradient>
+            <filter id="shadow"><feGaussianBlur stdDeviation="7"/></filter>
+          </defs>
+          <ellipse cx="184" cy="339" rx="105" ry="17" fill="#000" opacity=".65" filter="url(#shadow)"/>
+          <g stroke="#e9c66f" stroke-opacity=".55" stroke-width="1.2" stroke-linejoin="round">
+            <path d="M85 115 183 58 278 112 181 169Z" fill="url(#top)"/>
+            <path d="M85 115 181 169 181 282 85 226Z" fill="url(#front)"/>
+            <path d="M181 169 278 112 278 225 181 282Z" fill="url(#side)"/>
+            <path d="M117 134 183 95 245 131 180 170Z" fill="#2b2112" stroke="#f3d78f" stroke-opacity=".8"/>
+            <path d="M117 134 180 170 180 244 117 208Z" fill="#755727"/>
+            <path d="M180 170 245 131 245 205 180 244Z" fill="#3e2d16"/>
+            <path d="M137 145 183 117 225 141 180 169Z" fill="url(#top)" stroke-opacity=".75"/>
+            <path d="M137 145 180 169 180 219 137 195Z" fill="#b88f44"/>
+            <path d="M180 169 225 141 225 191 180 219Z" fill="#62451f"/>
+            <path d="M85 226 181 282 278 225 278 248 181 306 85 250Z" fill="#7d5a28"/>
+            <path d="M85 250 181 306 181 329 85 274Z" fill="#b1863d"/>
+            <path d="M181 306 278 248 278 271 181 329Z" fill="#4b361a"/>
+            <path d="M101 134 164 170 164 184 101 148Z" fill="#f0d083" opacity=".7"/>
+            <path d="M197 184 261 147 261 160 197 198Z" fill="#dbb766" opacity=".55"/>
+          </g>
+          <g fill="none" stroke="#f6dfa1" stroke-opacity=".38" stroke-width="1">
+            <path d="M85 115 181 169 278 112M181 169V282M117 134 180 170 245 131M137 145 180 169 225 141"/>
+            <path d="M85 226 181 282 278 225M85 250 181 306 278 248"/>
+          </g>
+        </svg>
+        <div class="visual-tag tag-top"><strong>IDEA → OBJECT</strong><span>Van concept naar realiteit</span></div>
+        <div class="visual-tag tag-bottom"><strong>MADE FOR YOU</strong><span>Jouw idee staat centraal</span></div>
+        <div class="coordinates">51° 50' N / 04° 08' E</div>
+      </div>
+    </section>
+  </main>
+
+  <div class="ticker" aria-label="Onze mogelijkheden">
+    <div class="ticker-inner"><span><b>✳</b> 3D-PRINTEN OP MAAT</span><span><b>✳</b> FUNCTIONELE ACCESSOIRES</span><span><b>✳</b> PROTOTYPES & CONCEPTEN</span><span><b>✳</b> KLEINE EN UNIEKE OBJECTEN</span></div>
+  </div>
+
+  <main>
+    <section class="content-section" id="diensten">
+      <div class="section-head reveal">
+        <div><div class="section-label">01 / WAT WE MAKEN</div><h2>Van handig tot <span>helemaal uniek.</span></h2></div>
+        <p class="section-intro">Niet elk idee past in een standaard product. Soms heb je precies dat ene onderdeel nodig — of wil je iets maken dat nog niet bestaat.</p>
+      </div>
+      <div class="services">
+        <article class="service reveal"><div class="service-no">01 / FUNCTIONEEL <span>↗</span></div><h3>Handige accessoires</h3><p>Praktische oplossingen voor je bureau, gaming-setup, kabels, houders en andere alledaagse uitdagingen.</p><a class="learn" href="#contact">BESPREK JE IDEE ↗</a></article>
+        <article class="service reveal"><div class="service-no">02 / MAATWERK <span>↗</span></div><h3>Ontwerp op maat</h3><p>Een specifiek formaat, bijzondere vorm of onderdeel dat precies moet aansluiten op jouw situatie? We denken met je mee.</p><a class="learn" href="#contact">BESPREK JE IDEE ↗</a></article>
+        <article class="service reveal"><div class="service-no">03 / CREATIEF <span>↗</span></div><h3>Prototypes & unieke prints</h3><p>Breng een concept tot leven, test een ontwerp of maak een persoonlijk object dat je nergens kant-en-klaar vindt.</p><a class="learn" href="#contact">BESPREK JE IDEE ↗</a></article>
+      </div>
+    </section>
+
+    <section class="content-section" id="werkwijze">
+      <div class="process">
+        <div class="process-intro reveal"><div class="section-label">02 / ZO WERKT HET</div><h2>Van eerste idee <span>tot print.</span></h2><p>Je hoeft niet alles al uitgedacht te hebben. Vertel wat je wilt maken, waar het voor dient en wat je in gedachten hebt. Samen bekijken we wat haalbaar is.</p><a class="btn btn-secondary" href="#contact">Begin een project ↗</a></div>
+        <div class="steps">
+          <article class="step reveal"><span class="step-no">01</span><div><h3>Vertel wat je nodig hebt</h3><p>Beschrijf het idee en de toepassing. Foto's, afmetingen, een schets of een bestaand 3D-bestand zijn een fijne start.</p></div></article>
+          <article class="step reveal"><span class="step-no">02</span><div><h3>We bespreken de mogelijkheden</h3><p>We kijken naar afmetingen, materiaal, details en eventuele aanpassingen. Daarna stemmen we de verwachte prijs en planning af.</p></div></article>
+          <article class="step reveal"><span class="step-no">03</span><div><h3>Het ontwerp wordt geprint</h3><p>Na akkoord wordt het ontwerp voorbereid en geprint. De haalbaarheid hangt af van de vorm, afmetingen en gewenste eigenschappen.</p></div></article>
+          <article class="step reveal"><span class="step-no">04</span><div><h3>Klaar voor jouw project</h3><p>We stemmen af hoe je het resultaat ontvangt. Bij maatwerk is het belangrijk vooraf de pasvorm en het beoogde gebruik te bespreken.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="feature-band reveal">
+        <div class="feature-mark" aria-hidden="true"><div class="cube"></div></div>
+        <div class="feature-copy"><div class="section-label">MAATWERK BEGINT MET EEN IDEE</div><h2>Een idee dat nog niet in de winkel ligt?</h2><p>Juist daarvoor is 3D-printen interessant. Deel je wensen, referentiefoto's of modelbestand, dan bekijken we samen een praktische aanpak die past bij jouw project.</p><a class="btn btn-primary" href="#contact">Vertel me erover <span>↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="content-section" id="veelgevraagd">
+      <div class="faq-grid">
+        <div class="faq-intro reveal"><div class="section-label">03 / GOED OM TE WETEN</div><h2>Veelgestelde <span>vragen.</span></h2><p>Staat jouw vraag er niet tussen? Stuur gerust een berichtje met wat je in gedachten hebt.</p></div>
+        <div class="faq-list reveal">
+          <details><summary>Wat kost een 3D-print?</summary><p>De prijs hangt onder andere af van formaat, printtijd, materiaal, ontwerpcomplexiteit en eventuele nabewerking. Na het bespreken van je idee kan er een gerichte prijsinschatting worden gemaakt.</p></details>
+          <details><summary>Moet ik zelf een 3D-bestand hebben?</summary><p>Nee, je kunt beginnen met een omschrijving, foto of schets. Heb je al een geschikt 3D-bestand, dan helpt dat om sneller te bepalen wat er mogelijk is.</p></details>
+          <details><summary>Kan ik een bestaand onderdeel laten namaken?</summary><p>Dat is afhankelijk van de vorm, maatvoering, toepassing en eventuele rechten op het ontwerp. Stuur bij voorkeur foto's en afmetingen mee zodat we de mogelijkheden kunnen bekijken.</p></details>
+          <details><summary>Welke kleuren en materialen zijn mogelijk?</summary><p>Dat hangt af van de gewenste eigenschappen en wat op dat moment beschikbaar is. Bespreek je voorkeuren vooraf; niet iedere kleur, maat of materiaaleigenschap is voor elk ontwerp haalbaar.</p></details>
+          <details><summary>Hoe lang duurt een opdracht?</summary><p>De doorlooptijd is afhankelijk van het ontwerp, de benodigde voorbereiding en de print. Je krijgt een indicatie nadat de details van je project zijn besproken.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="contact-panel reveal">
+        <div><div class="section-label">04 / JOUW IDEE START HIER</div><h2>Klaar om iets te maken?</h2><p>Stuur een bericht met je idee, het beoogde gebruik en eventuele afmetingen of bestanden. Dan kunnen we samen de mogelijkheden bekijken.</p></div>
+        <a class="btn btn-primary" href="mailto:contact@ptrv.nl?subject=3D-printopdracht%20%E2%80%94%20Petrov%27s%20Workshop">Neem contact op <span>↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-left"><strong>PETROV'S WORKSHOP</strong> · 3D PRINTING SERVICE · <span id="year">2026</span></div>
+    <nav class="foot-links" aria-label="Footernavigatie"><a href="#top">NAAR BOVEN ↑</a><a href="#diensten">DIENSTEN</a><a href="#contact">CONTACT</a><a href="https://github.com/Bendemen-Studios/PTRV.nl" target="_blank" rel="noopener noreferrer">GITHUB ↗</a></nav>
+  </footer>
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav-links');
+    menuButton.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.textContent = isOpen ? 'SLUITEN ×' : 'MENU ☰';
+    });
+    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.textContent = 'MENU ☰';
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
