@@ -95,9 +95,12 @@
     .brand-name{font-weight:800;font-size:13px;letter-spacing:.01em}
     .brand-name small{display:block;margin-top:4px;font:9px 'DM Mono',monospace;letter-spacing:.15em;color:var(--bright)}
     .nav-links{display:flex;align-items:center;gap:30px}
-    .nav-links a{font:10px 'DM Mono',monospace;letter-spacing:.1em;text-decoration:none;color:var(--muted);transition:color .2s}
-    .nav-links a:hover{color:var(--bright)}
+    .nav-links a{font:10px 'DM Mono',monospace;letter-spacing:.1em;text-decoration:none;color:var(--muted);transition:color .2s;position:relative}
+    .nav-links a:hover,.nav-links a.active{color:var(--bright)}
+    .nav-links a:not(.nav-cta)::after{content:"";position:absolute;left:0;right:0;bottom:-9px;height:2px;background:var(--bright);transform:scaleX(0);transform-origin:left;transition:transform .2s}
+    .nav-links a:not(.nav-cta).active::after{transform:scaleX(1)}
     .nav-links .nav-cta{padding:12px 15px;border:1px solid var(--dim);color:var(--bright)}
+    .nav-links .nav-cta.active{border-color:var(--bright);box-shadow:inset 0 -2px 0 var(--bright)}
     .menu-toggle{display:none;background:none;border:1px solid var(--line);color:var(--bright);padding:10px 12px;font:10px 'DM Mono',monospace}
     main,footer{width:min(var(--content),calc(100% - 48px));margin:0 auto}
     .hero{min-height:790px;padding:160px 0 100px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:55px;position:relative}
@@ -372,29 +375,59 @@
       menuButton.textContent = 'MENU ☰';
     }));
     document.getElementById('year').textContent = new Date().getFullYear();
-    // Gebruik nette URL-paden (/diensten) in plaats van URL-fragmenten (/#diensten).
+    // Gebruik nette URL-paden (/diensten) en werk URL en navigatie bij tijdens scrollen.
     const sectionIds = new Set(['top', 'diensten', 'portfolio', 'werkwijze', 'veelgevraagd', 'contact']);
     function scrollToSection(id, behavior = 'smooth') {
       const target = document.getElementById(id);
       if (!target) return;
       target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : behavior, block: 'start' });
+      setActiveSection(id);
+    }
+    function setActiveSection(id) {
+      document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
+        const active = link.getAttribute('href').slice(1) === id;
+        link.classList.toggle('active', active);
+        if (active) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    }
+    function setSectionPath(id, push = false) {
+      const nextPath = id === 'top' ? '/' : '/' + id;
+      if (window.location.pathname === nextPath) return;
+      history[push ? 'pushState' : 'replaceState']({ section: id }, '', nextPath);
     }
     document.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener('click', event => {
       const id = link.getAttribute('href').slice(1);
       if (!sectionIds.has(id) || !document.getElementById(id)) return;
       event.preventDefault();
-      const nextPath = id === 'top' ? '/' : '/' + id;
-      if (window.location.pathname !== nextPath) history.pushState({ section: id }, '', nextPath);
+      setSectionPath(id, true);
       scrollToSection(id);
     }));
     function syncSectionFromPath() {
-      const slug = window.location.pathname.replace(/^\/+|\/+$/g, '');
-      const id = slug === '' ? 'top' : slug;
-      if (sectionIds.has(id)) scrollToSection(id, 'auto');
+      const slug = window.location.pathname.replace(/^\\/+|\\/+$/g, '');
+      const id = slug === '' || slug === 'index.html' ? 'top' : slug;
+      if (sectionIds.has(id)) {
+        setActiveSection(id);
+        scrollToSection(id, 'auto');
+      }
     }
     window.addEventListener('popstate', syncSectionFromPath);
+    const sectionObserver = new IntersectionObserver(entries => {
+      const visible = entries.filter(entry => entry.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      const id = visible.target.id;
+      if (!sectionIds.has(id)) return;
+      setActiveSection(id);
+      setSectionPath(id);
+    }, { rootMargin: '-28% 0px -58% 0px', threshold: [0, 0.1, 0.25, 0.5] });
+    [...sectionIds].forEach(id => {
+      const section = document.getElementById(id);
+      if (section) sectionObserver.observe(section);
+    });
     if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
       requestAnimationFrame(syncSectionFromPath);
+    } else {
+      setActiveSection('top');
     }
 
     // Laad alle afbeeldingen uit de map /portfolio via de openbare GitHub API.
