@@ -317,7 +317,7 @@
     const portfolioStatus = document.getElementById('portfolio-status');
     async function loadPortfolio() {
       const apiUrl = 'https://api.github.com/repos/Bendemen-Studios/PTRV.nl/contents/portfolio';
-      const imageExtensions = /\\.(avif|gif|jpe?g|png|webp)$/i;
+      const imageExtensions = /\.(avif|gif|jpe?g|png|webp)$/i;
       try {
         const response = await fetch(apiUrl, { headers: { Accept: 'application/vnd.github+json' } });
         if (!response.ok) throw new Error('Portfolio-map niet bereikbaar');
