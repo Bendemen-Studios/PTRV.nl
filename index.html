@@ -79,6 +79,17 @@
     .service h3{font-size:20px;letter-spacing:-.04em;margin:25px 0 11px}
     .service p{color:#89847b;font-size:12px;line-height:1.85;margin:0}
     .service .learn{display:inline-flex;margin-top:24px;color:var(--bright);text-decoration:none;font:10px 'DM Mono',monospace;letter-spacing:.08em}
+    .portfolio-shell{overflow:hidden;position:relative;border-block:1px solid var(--line);padding:18px 0}
+    .portfolio-track{display:flex;gap:18px;width:max-content;animation:portfolio-scroll 42s linear infinite}
+    .portfolio-shell:hover .portfolio-track,.portfolio-shell:focus-within .portfolio-track{animation-play-state:paused}
+    .portfolio-card{width:clamp(240px,30vw,360px);height:270px;flex:0 0 auto;position:relative;overflow:hidden;border:1px solid var(--line);background:linear-gradient(145deg,#14110b,#050505);display:grid;place-items:center}
+    .portfolio-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+    .portfolio-card:hover img{transform:scale(1.04)}
+    .portfolio-card figcaption{position:absolute;inset:auto 0 0;padding:32px 16px 15px;background:linear-gradient(transparent,rgba(0,0,0,.9));color:#eee;font:10px 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase}
+    .portfolio-empty{padding:30px;border:1px dashed var(--dim);color:var(--muted);font-size:12px;line-height:1.8;text-align:center}
+    .portfolio-status{color:var(--muted);font:10px 'DM Mono',monospace;letter-spacing:.08em;margin-top:18px}
+    @keyframes portfolio-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    @media(prefers-reduced-motion:reduce){.portfolio-track{animation:none;flex-wrap:wrap;width:auto}}
     .process{display:grid;grid-template-columns:.8fr 1.2fr;gap:75px;align-items:start}
     .process-intro p{max-width:360px;color:#89847b;font-size:13px;line-height:1.9;margin:22px 0 0}
     .steps{border-top:1px solid var(--line)}
@@ -141,6 +152,7 @@
     <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">MENU ☰</button>
     <nav class="nav-links" id="nav-links" aria-label="Hoofdnavigatie">
       <a href="#diensten">DIENSTEN</a>
+      <a href="#portfolio">PORTFOLIO</a>
       <a href="#werkwijze">WERKWIJZE</a>
       <a href="#veelgevraagd">FAQ</a>
       <a class="nav-cta" href="#contact">START JE PROJECT ↗</a>
@@ -214,9 +226,22 @@
       </div>
     </section>
 
+    <section class="content-section" id="portfolio">
+      <div class="section-head reveal">
+        <div><div class="section-label">02 / EERDER GEMAAKT</div><h2>Ons <span>portfolio.</span></h2></div>
+        <p class="section-intro">Een kijkje bij eerdere prints en projecten. De foto's worden automatisch opgehaald uit de portfolio-map en bewegen in een doorlopende slider.</p>
+      </div>
+      <div class="portfolio-shell reveal" aria-label="Doorlopende slider met portfoliofoto's">
+        <div class="portfolio-track" id="portfolio-track">
+          <div class="portfolio-empty">Portfoliofoto's worden geladen…</div>
+        </div>
+      </div>
+      <p class="portfolio-status" id="portfolio-status" aria-live="polite">PROJECTEN · PETROV'S WORKSHOP</p>
+    </section>
+
     <section class="content-section" id="werkwijze">
       <div class="process">
-        <div class="process-intro reveal"><div class="section-label">02 / ZO WERKT HET</div><h2>Van jouw bestand <span>tot print.</span></h2><p>Lever zelf een printklaar 3D-bestand aan. We ontwerpen of modelleren geen objecten, maar bekijken graag of jouw bestand geschikt is om te printen.</p><a class="btn btn-secondary" href="#contact">Begin een project ↗</a></div>
+        <div class="process-intro reveal"><div class="section-label">03 / ZO WERKT HET</div><h2>Van jouw bestand <span>tot print.</span></h2><p>Lever zelf een printklaar 3D-bestand aan. We ontwerpen of modelleren geen objecten, maar bekijken graag of jouw bestand geschikt is om te printen.</p><a class="btn btn-secondary" href="#contact">Begin een project ↗</a></div>
         <div class="steps">
           <article class="step reveal"><span class="step-no">01</span><div><h3>Vertel wat je nodig hebt</h3><p>Lever je eigen 3D-bestand aan, bij voorkeur als STL of 3MF. Vermeld ook de gewenste afmetingen, toepassing en eventuele voorkeuren.</p></div></article>
           <article class="step reveal"><span class="step-no">02</span><div><h3>We bespreken de mogelijkheden</h3><p>We controleren de printbaarheid van het aangeleverde bestand en bespreken materiaal, prijs en planning. We maken geen 3D-ontwerpen of modellen.</p></div></article>
@@ -235,7 +260,7 @@
 
     <section class="content-section" id="veelgevraagd">
       <div class="faq-grid">
-        <div class="faq-intro reveal"><div class="section-label">03 / GOED OM TE WETEN</div><h2>Veelgestelde <span>vragen.</span></h2><p>Staat jouw vraag er niet tussen? Stuur gerust een berichtje met wat je in gedachten hebt.</p></div>
+        <div class="faq-intro reveal"><div class="section-label">04 / GOED OM TE WETEN</div><h2>Veelgestelde <span>vragen.</span></h2><p>Staat jouw vraag er niet tussen? Stuur gerust een berichtje met wat je in gedachten hebt.</p></div>
         <div class="faq-list reveal">
           <details><summary>Wat kost een 3D-print?</summary><p>De prijs hangt onder andere af van formaat, printtijd, materiaal, ontwerpcomplexiteit en eventuele nabewerking. Na het bespreken van je idee kan er een gerichte prijsinschatting worden gemaakt.</p></details>
           <details><summary>Moet ik zelf een 3D-bestand hebben?</summary><p>We maken zelf geen 3D-designs of 3D-modellen. Je moet dus zelf een kant-en-klaar 3D-bestand aanleveren, bijvoorbeeld als STL of 3MF. We kunnen vervolgens bekijken of het bestand geschikt is om te printen.</p></details>
@@ -248,7 +273,7 @@
 
     <section class="contact-section" id="contact">
       <div class="contact-panel reveal">
-        <div><div class="section-label">04 / JOUW IDEE START HIER</div><h2>Klaar om iets te maken?</h2><p>Vul het formulier in en vertel wat je wilt laten printen. Je eigen 3D-bestand kun je optioneel meesturen als STL of 3MF. We maken geen designs of 3D-modellen.</p></div>
+        <div><div class="section-label">05 / JOUW IDEE START HIER</div><h2>Klaar om iets te maken?</h2><p>Vul het formulier in en vertel wat je wilt laten printen. Je eigen 3D-bestand kun je optioneel meesturen als STL of 3MF. We maken geen designs of 3D-modellen.</p></div>
         <form class="contact-form" id="contact-form" enctype="multipart/form-data">
           <div class="form-field"><label for="name">Naam *</label><input id="name" name="name" type="text" autocomplete="name" required maxlength="120"></div>
           <div class="form-field"><label for="email">E-mailadres *</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="254"></div>
@@ -286,6 +311,44 @@
       event.preventDefault();
       target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
     }));
+
+    // Laad alle afbeeldingen uit de map /portfolio via de openbare GitHub API.
+    const portfolioTrack = document.getElementById('portfolio-track');
+    const portfolioStatus = document.getElementById('portfolio-status');
+    async function loadPortfolio() {
+      const apiUrl = 'https://api.github.com/repos/Bendemen-Studios/PTRV.nl/contents/portfolio';
+      const imageExtensions = /\\.(avif|gif|jpe?g|png|webp)$/i;
+      try {
+        const response = await fetch(apiUrl, { headers: { Accept: 'application/vnd.github+json' } });
+        if (!response.ok) throw new Error('Portfolio-map niet bereikbaar');
+        const files = await response.json();
+        const images = files.filter(file => file.type === 'file' && imageExtensions.test(file.name) && file.download_url);
+        if (!images.length) {
+          portfolioTrack.innerHTML = '<div class="portfolio-empty">Er staan nog geen foto\'s in de map <strong>portfolio/</strong>. Upload daar JPG-, PNG-, WEBP-, GIF- of AVIF-afbeeldingen; de slider vult zichzelf daarna automatisch.</div>';
+          portfolioStatus.textContent = 'BINNENKORT MEER PROJECTEN';
+          return;
+        }
+        const makeCard = file => {
+          const figure = document.createElement('figure');
+          figure.className = 'portfolio-card';
+          const img = document.createElement('img');
+          img.src = file.download_url;
+          img.alt = file.name.replace(imageExtensions, '').replace(/[-_]+/g, ' ');
+          img.loading = 'lazy';
+          img.decoding = 'async';
+          const caption = document.createElement('figcaption');
+          caption.textContent = file.name.replace(imageExtensions, '').replace(/[-_]+/g, ' ');
+          figure.append(img, caption);
+          return figure;
+        };
+        portfolioTrack.replaceChildren(...images.map(makeCard), ...images.map(makeCard));
+        portfolioStatus.textContent = images.length + (images.length === 1 ? ' PROJECT · ' : ' PROJECTEN · ') + 'AUTOMATISCH BIJGEWERKT VANUIT GITHUB';
+      } catch (error) {
+        portfolioTrack.innerHTML = '<div class="portfolio-empty">De portfoliofoto\'s konden niet worden geladen. Probeer het later opnieuw.</div>';
+        portfolioStatus.textContent = 'PORTFOLIO TIJDELIJK NIET BESCHIKBAAR';
+      }
+    }
+    loadPortfolio();
 
     const contactForm = document.getElementById('contact-form');
     contactForm.addEventListener('submit', async event => {
