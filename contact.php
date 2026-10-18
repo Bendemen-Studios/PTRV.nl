@@ -58,11 +58,21 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] !== UPLOAD_ERR_NO_FILE) {
     $attachments[] = [$upload['tmp_name'], substr($safeName ?: 'model.' . $extension, 0, 160)];
 }
 
-$smtpHost = getenv('SMTP_HOST') ?: '';
-$smtpPort = (int)(getenv('SMTP_PORT') ?: '465');
-$smtpUser = getenv('SMTP_USER') ?: '';
-$smtpPass = getenv('SMTP_PASS') ?: '';
-$contactTo = getenv('CONTACT_TO') ?: 'ben@justpetrov.com';
+$configPath = __DIR__ . '/smtp-config.php';
+if (!is_file($configPath)) {
+    error_log('PTRV contact: smtp-config.php is missing.');
+    respond(503, ['error' => 'De SMTP-configuratie ontbreekt op de server.']);
+}
+$config = require $configPath;
+if (!is_array($config)) {
+    error_log('PTRV contact: smtp-config.php must return an array.');
+    respond(503, ['error' => 'De SMTP-configuratie is ongeldig.']);
+}
+$smtpHost = (string)($config['SMTP_HOST'] ?? '');
+$smtpPort = (int)($config['SMTP_PORT'] ?? 465);
+$smtpUser = (string)($config['SMTP_USER'] ?? '');
+$smtpPass = (string)($config['SMTP_PASS'] ?? '');
+$contactTo = (string)($config['CONTACT_TO'] ?? 'ben@justpetrov.com');
 
 if ($smtpHost === '' || $smtpUser === '' || $smtpPass === '' || !filter_var($contactTo, FILTER_VALIDATE_EMAIL)) {
     error_log('PTRV contact: SMTP_HOST, SMTP_USER, SMTP_PASS or CONTACT_TO is not configured.');
@@ -79,14 +89,14 @@ try {
     $mail->Port = $smtpPort;
     $mail->SMTPSecure = $smtpPort === 465 ? PHPMailer::ENCRYPTION_SMTPS : PHPMailer::ENCRYPTION_STARTTLS;
     $mail->CharSet = 'UTF-8';
-    $mail->setFrom($smtpUser, "Petrov's Workshop website");
+    $mail->setFrom($smtpUser, "Petrov's Workshop");
     $mail->addAddress($contactTo);
     $mail->addReplyTo($email, $name);
     $headerImage = __DIR__ . '/mail-header.png';
     if (is_file($headerImage)) {
         $mail->addEmbeddedImage($headerImage, 'ptrv-mail-header', 'mail-header.png', 'base64', 'image/png');
         $mail->isHTML(true);
-        $mail->Subject = 'Nieuwe 3D-printaanvraag via PTRV.nl';
+        $mail->Subject = '[!] Nieuwe 3D-printaanvraag';
         $mail->Body = '<div style="margin:0 auto;max-width:700px;background:#050505;color:#eeeeee;font-family:Arial,sans-serif;border:1px solid #292318">'
             . '<img src="cid:ptrv-mail-header" alt="Petrov" style="display:block;width:100%;height:auto;border:0">'
             . '<div style="padding:24px"><h2 style="color:#d1ae60;margin:0 0 18px">Nieuwe 3D-printaanvraag</h2>'
@@ -101,7 +111,7 @@ try {
             $mail->Body .= '<div style="margin:0 auto;max-width:700px"><img src="cid:ptrv-mail-footer" alt="Petrov — automail@justpetrov.com — PTRV.nl" style="display:block;width:100%;height:auto;border:0"></div>';
         }
     } else {
-        $mail->Subject = 'Nieuwe 3D-printaanvraag via PTRV.nl';
+        $mail->Subject = '[!] Nieuwe 3D-printaanvraag';
         $mail->Body = "Nieuwe aanvraag via de website\n\nNaam: {$name}\nE-mail: {$email}\nTelefoonnummer: {$phone}\n\nIdee / opdracht:\n{$idea}";
         $mail->AltBody = $mail->Body;
     }
