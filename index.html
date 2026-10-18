@@ -323,7 +323,7 @@
       scrollToSection(id);
     }));
     function syncSectionFromPath() {
-      const slug = window.location.pathname.replace(/^\\/+|\\/+$/g, '');
+      const slug = window.location.pathname.replace(/^\/+|\/+$/g, '');
       const id = slug === '' ? 'top' : slug;
       if (sectionIds.has(id)) scrollToSection(id, 'auto');
     }
