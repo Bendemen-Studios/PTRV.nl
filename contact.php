@@ -95,6 +95,11 @@ try {
             . '<p><strong>Telefoonnummer:</strong> ' . htmlspecialchars($phone, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '</p>'
             . '<p><strong>Idee / opdracht:</strong><br>' . nl2br(htmlspecialchars($idea, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8')) . '</p></div></div>';
         $mail->AltBody = "Nieuwe aanvraag via de website\n\nNaam: {$name}\nE-mail: {$email}\nTelefoonnummer: {$phone}\n\nIdee / opdracht:\n{$idea}";
+        $footerImage = __DIR__ . '/mail-footer.png';
+        if (is_file($footerImage)) {
+            $mail->addEmbeddedImage($footerImage, 'ptrv-mail-footer', 'mail-footer.png', 'base64', 'image/png');
+            $mail->Body .= '<div style="margin:0 auto;max-width:700px"><img src="cid:ptrv-mail-footer" alt="Petrov — automail@justpetrov.com — PTRV.nl" style="display:block;width:100%;height:auto;border:0"></div>';
+        }
     } else {
         $mail->Subject = 'Nieuwe 3D-printaanvraag via PTRV.nl';
         $mail->Body = "Nieuwe aanvraag via de website\n\nNaam: {$name}\nE-mail: {$email}\nTelefoonnummer: {$phone}\n\nIdee / opdracht:\n{$idea}";
