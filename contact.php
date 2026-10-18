@@ -82,9 +82,24 @@ try {
     $mail->setFrom($smtpUser, "Petrov's Workshop website");
     $mail->addAddress($contactTo);
     $mail->addReplyTo($email, $name);
-    $mail->Subject = 'Nieuwe 3D-printaanvraag via PTRV.nl';
-    $mail->Body = "Nieuwe aanvraag via de website\n\nNaam: {$name}\nE-mail: {$email}\nTelefoonnummer: {$phone}\n\nIdee / opdracht:\n{$idea}";
-    $mail->AltBody = $mail->Body;
+    $headerImage = __DIR__ . '/mail-header.png';
+    if (is_file($headerImage)) {
+        $mail->addEmbeddedImage($headerImage, 'ptrv-mail-header', 'mail-header.png', 'base64', 'image/png');
+        $mail->isHTML(true);
+        $mail->Subject = 'Nieuwe 3D-printaanvraag via PTRV.nl';
+        $mail->Body = '<div style="margin:0 auto;max-width:700px;background:#050505;color:#eeeeee;font-family:Arial,sans-serif;border:1px solid #292318">'
+            . '<img src="cid:ptrv-mail-header" alt="Petrov" style="display:block;width:100%;height:auto;border:0">'
+            . '<div style="padding:24px"><h2 style="color:#d1ae60;margin:0 0 18px">Nieuwe 3D-printaanvraag</h2>'
+            . '<p><strong>Naam:</strong> ' . htmlspecialchars($name, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '</p>'
+            . '<p><strong>E-mail:</strong> ' . htmlspecialchars($email, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '</p>'
+            . '<p><strong>Telefoonnummer:</strong> ' . htmlspecialchars($phone, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '</p>'
+            . '<p><strong>Idee / opdracht:</strong><br>' . nl2br(htmlspecialchars($idea, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8')) . '</p></div></div>';
+        $mail->AltBody = "Nieuwe aanvraag via de website\n\nNaam: {$name}\nE-mail: {$email}\nTelefoonnummer: {$phone}\n\nIdee / opdracht:\n{$idea}";
+    } else {
+        $mail->Subject = 'Nieuwe 3D-printaanvraag via PTRV.nl';
+        $mail->Body = "Nieuwe aanvraag via de website\n\nNaam: {$name}\nE-mail: {$email}\nTelefoonnummer: {$phone}\n\nIdee / opdracht:\n{$idea}";
+        $mail->AltBody = $mail->Body;
+    }
     foreach ($attachments as [$path, $filename]) {
         $mail->addAttachment($path, $filename);
     }
