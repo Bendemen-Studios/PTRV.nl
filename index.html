@@ -293,7 +293,7 @@
       status.textContent = 'Aanvraag wordt verstuurd…';
       submit.disabled = true;
       try {
-        const response = await fetch('/api/contact', { method: 'POST', body: new FormData(contactForm) });
+        const response = await fetch('/contact.php', { method: 'POST', body: new FormData(contactForm) });
         const result = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error(result.error || 'Versturen is niet gelukt. Probeer het later opnieuw.');
         contactForm.reset();
