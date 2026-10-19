@@ -20,6 +20,12 @@ $email = trim((string)($_POST['email'] ?? ''));
 $phone = trim((string)($_POST['phone'] ?? ''));
 $idea = trim((string)($_POST['idea'] ?? ''));
 
+// Honeypot: bots often fill every field; silently accept without emailing.
+$honeypot = trim((string)($_POST['website'] ?? ''));
+if ($honeypot !== '') {
+    respond(200, ['success' => true, 'message' => 'Bedankt! Je aanvraag is ontvangen.']);
+}
+
 if ($name === '' || $email === '' || $phone === '' || $idea === '') {
     respond(400, ['error' => 'Vul alle verplichte velden in.']);
 }
