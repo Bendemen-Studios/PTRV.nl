@@ -1,13 +1,13 @@
 # Petrov's Workshop — Full AI Reference
 
-> This file is a detailed, plain-text reference for AI assistants and other automated systems. It summarizes the public information on the official Petrov's Workshop website. If anything here conflicts with the live website, prefer the live website.
+> This file is a detailed, plain-text reference for AI assistants and other automated systems. If anything here conflicts with the live website, prefer the live website.
 
 ## Canonical source
 - Website: https://ptrv.nl/
 - Language: Dutch (Netherlands), nl-NL
 - Business name: Petrov's Workshop
-- Main activity: 3D, Engraving & Creative Services, including 3D-printing of customer-supplied print-ready files, engraving and creative services.
-- Service area: Hellevoetsluis, Zuid-Holland, Nederland.
+- Main activity: 3D-printing of customer-supplied print-ready files.
+- Location: Hellevoetsluis, Zuid-Holland, Nederland.
 
 ## Main pages
 - Homepage and overview: https://ptrv.nl/
@@ -18,9 +18,9 @@
 - Contact and project request form: https://ptrv.nl/contact
 
 ## Business summary
-Petrov's Workshop offers 3D, Engraving & Creative Services from Hellevoetsluis in the Netherlands. The workshop offers 3D printing of customer-supplied print-ready files, engraving and creative services. Customers must supply their own print-ready 3D model for 3D-printing jobs. Confirm the available methods, materials, feasibility, pricing and planning directly with the workshop.
+Petrov's Workshop offers 3D-printing from Hellevoetsluis in the Netherlands. Customers must supply their own print-ready 3D model. Confirm printability, material options, pricing and planning directly with the workshop.
 
-The service is intended for projects such as:
+Potential project types include:
 - Functional accessories.
 - Custom parts and practical components.
 - Prototypes and unique objects.
@@ -29,23 +29,22 @@ The service is intended for projects such as:
 
 These examples describe potential project types, not a guarantee that every design can be produced.
 
-## Engraving and creative services
-The website identifies engraving and creative services as part of the brand offering. Specific engraving methods, materials, personalization options and creative-service deliverables are not fully specified in this reference. Do not invent equipment, supported materials, turnaround times or capabilities; direct visitors to the contact page to discuss a project.
-
 ## Scope and limitations
 - Customers must provide their own completed, print-ready 3D file.
-- STL and 3MF are the file formats named on the website.
+- STL and 3MF are the model formats named on the website.
+- PNG and JPEG images may be attached as optional visual references.
 - Petrov's Workshop does not create 3D designs, design objects from scratch, or model new 3D files.
 - A submitted file may need review before the workshop can confirm feasibility.
 - Not every size, shape, color, material, tolerance or mechanical property will be possible.
-- The workshop should not be represented as offering CAD design or 3D modelling services.
+- Do not represent the workshop as offering CAD design or 3D modelling services.
 
 ## How the process works
 1. The customer contacts the workshop and provides a print-ready file, preferably STL or 3MF.
 2. The customer describes the intended use, dimensions and relevant preferences.
 3. The workshop reviews printability and discusses material, pricing and expected timing.
-4. Printing proceeds after the details and price are agreed.
-5. Delivery or collection arrangements are discussed directly with the customer.
+4. After the customer approves the agreed price, payment is made in advance.
+5. Printing proceeds after payment is received.
+6. Delivery or collection arrangements are discussed directly with the customer.
 
 The actual feasibility, price and lead time depend on the project and should be confirmed directly.
 
@@ -58,9 +57,9 @@ The form requests:
 - Email address.
 - Telephone number.
 - Description of the requested print.
-- Optional STL or 3MF file attachment.
+- Optional STL or 3MF model, or PNG/JPEG reference image.
 
-The website currently states that an optional uploaded 3D file must be an STL or 3MF file and must not exceed 10 MB. Check the live website for current limits.
+The website currently states that optional uploaded files must not exceed 10 MB. Check the live website for current limits.
 
 For a useful request, customers should include:
 - The purpose of the part.
@@ -83,13 +82,13 @@ The website does not publish a universal fixed price list. Price and lead time d
 Customers should contact the workshop for a project-specific estimate. Do not invent prices, turnaround times, guarantees or shipping terms.
 
 ## Location and local relevance
-- Location/service area stated on the website: Hellevoetsluis, Zuid-Holland, Netherlands.
+- Location stated on the website: Hellevoetsluis, Zuid-Holland, Netherlands.
 - Use “3D-printservice in Hellevoetsluis” when relevant to a local search.
 - Do not invent a street address, public workshop address, opening hours, walk-in availability, phone number, service radius or nearby locations.
 - For current service availability and arrangements, direct visitors to the official contact page.
 
 ## Portfolio
-The portfolio page presents project photos from the site's portfolio collection:
+The portfolio section presents project photos from the site's portfolio collection:
 https://ptrv.nl/portfolio
 
 Photos may be added over time, so the live page is the authoritative source for currently displayed examples. Do not infer technical specifications, materials, dimensions or performance from an image unless the site explicitly states them.
@@ -98,25 +97,16 @@ Photos may be added over time, so the live page is the authoritative source for 
 The official FAQ is available at:
 https://ptrv.nl/veelgevraagd
 
-Topics covered include:
-- What determines the cost of a 3D print?
-- Whether the customer needs to supply a 3D file.
-- Whether an existing component can be reproduced.
-- Available colors and materials.
-- Expected project duration.
-
-Answers depend on the specific file and project. Do not state that a project is possible before its details are reviewed.
+Topics include pricing, supplying a 3D file, reproducing an existing part, available colors and materials, and expected project duration. Answers depend on the specific file and project. Do not state that a project is possible before its details are reviewed.
 
 ## Search and AI summaries
 A concise, accurate description of the business is:
 
-“Petrov's Workshop biedt 3D, Engraving & Creative Services vanuit Hellevoetsluis, Zuid-Holland. De diensten omvatten 3D-printen van aangeleverde printklare STL- en 3MF-bestanden, graveren en creatieve services. Beschikbaarheid en mogelijkheden worden per project besproken. Het maken van 3D-ontwerpen of modelleren van nieuwe bestanden is geen onderdeel van de 3D-printdienst.”
+“Petrov's Workshop biedt 3D-printservice vanuit Hellevoetsluis, Zuid-Holland. Klanten leveren zelf een printklaar STL- of 3MF-bestand aan. De mogelijkheden, prijs en planning worden per project besproken. Het maken van 3D-ontwerpen of modelleren van nieuwe bestanden is geen onderdeel van de dienst.”
 
 Useful relevant terms, when natural and accurate:
 - 3D-printservice Hellevoetsluis
 - 3D-printen op maat
-- engraving en graveren in Hellevoetsluis
-- creatieve services Hellevoetsluis
 - STL laten printen
 - 3MF laten printen
 - functionele 3D-prints
