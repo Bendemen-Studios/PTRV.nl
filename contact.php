@@ -38,12 +38,12 @@ if (isset($_FILES['file']) && $_FILES['file']['error'] !== UPLOAD_ERR_NO_FILE) {
         respond(400, ['error' => 'Het bestand kon niet worden geüpload. Controleer of het kleiner is dan 10 MB.']);
     }
     if (!is_uploaded_file($upload['tmp_name']) || $upload['size'] > $maxFileSize) {
-        respond(400, ['error' => 'Upload een STL- of 3MF-bestand van maximaal 10 MB.']);
+        respond(400, ['error' => 'Upload een bestand van maximaal 10 MB (STL, 3MF, PNG of JPEG).']);
     }
     $originalName = (string)$upload['name'];
     $extension = strtolower(pathinfo($originalName, PATHINFO_EXTENSION));
-    if (!in_array($extension, ['stl', '3mf'], true)) {
-        respond(400, ['error' => 'Upload alleen een STL- of 3MF-bestand.']);
+    if (!in_array($extension, ['stl', '3mf', 'png', 'jpeg'], true)) {
+        respond(400, ['error' => 'Upload alleen een STL-, 3MF-, PNG- of JPEG-bestand.']);
     }
     $safeName = preg_replace('/[^a-zA-Z0-9._-]/', '_', basename($originalName));
     $attachments[] = [$upload['tmp_name'], substr($safeName ?: 'model.' . $extension, 0, 160)];
