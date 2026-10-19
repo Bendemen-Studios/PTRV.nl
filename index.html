@@ -461,7 +461,7 @@
         const cards = images.map(makeCard);
         // Herhaal de reeks vier keer zodat ook bij weinig foto's de hele slider gevuld blijft.
         portfolioTrack.replaceChildren(...cards, ...images.map(makeCard), ...images.map(makeCard), ...images.map(makeCard));
-        portfolioStatus.textContent = images.length + (images.length === 1 ? ' PROJECT · ' : ' PROJECTEN · ') + 'AUTOMATISCH BIJGEWERKT VANUIT GITHUB';
+        portfolioStatus.textContent = images.length + (images.length === 1 ? ' PROJECT · ' : ' PROJECTEN · ') + 'AUTOMATISCH BIJGEWERKT';
       } catch (error) {
         portfolioTrack.innerHTML = '<div class="portfolio-empty">De portfoliofoto\'s konden niet worden geladen. Probeer het later opnieuw.</div>';
         portfolioStatus.textContent = 'PORTFOLIO TIJDELIJK NIET BESCHIKBAAR';
