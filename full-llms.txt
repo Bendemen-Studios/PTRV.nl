@@ -32,7 +32,6 @@ These examples describe potential project types, not a guarantee that every desi
 ## Scope and limitations
 - Customers must provide their own completed, print-ready 3D file.
 - STL and 3MF are the model formats named on the website.
-- PNG and JPEG images may be attached as optional visual references.
 - Petrov's Workshop does not create 3D designs, design objects from scratch, or model new 3D files.
 - A submitted file may need review before the workshop can confirm feasibility.
 - Not every size, shape, color, material, tolerance or mechanical property will be possible.
@@ -57,7 +56,7 @@ The form requests:
 - Email address.
 - Telephone number.
 - Description of the requested print.
-- Optional STL or 3MF model, or PNG/JPEG reference image.
+- Optional STL or 3MF 3D model.
 
 The website currently states that optional uploaded files must not exceed 10 MB. Check the live website for current limits.
 
