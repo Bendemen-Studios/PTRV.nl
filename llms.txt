@@ -13,7 +13,6 @@
 ## Dienst
 - 3D-printen van door klanten aangeleverde printklare bestanden.
 - Bestandsformaten voor 3D-modellen: STL en 3MF.
-- PNG- en JPEG-afbeeldingen kunnen optioneel als referentie worden meegestuurd.
 - Mogelijke projecttypen zijn functionele accessoires, maatwerkonderdelen en prototypes, afhankelijk van printbaarheid en haalbaarheid.
 - Petrov's Workshop maakt geen 3D-ontwerpen en modelleert geen nieuwe 3D-bestanden.
 
@@ -24,7 +23,7 @@
 ## Aanvragen
 - Gebruik het contactformulier op https://ptrv.nl/contact.
 - Vermeld gewenste afmetingen, toepassing en relevante voorkeuren.
-- Een STL-, 3MF-, PNG- of JPEG-bestand kan optioneel worden meegestuurd; de website vermeldt een maximale bestandsgrootte van 10 MB.
+- Een STL- of 3MF-bestand kan optioneel worden meegestuurd; de website vermeldt een maximale bestandsgrootte van 10 MB.
 
 ## Belangrijke informatie
 - Prijs en doorlooptijd hangen af van het bestand, de afmetingen, het materiaal, de printtijd en de haalbaarheid.
