@@ -31,7 +31,8 @@ These examples describe potential project types, not a guarantee that every desi
 
 ## Scope and limitations
 - Customers must provide their own completed, print-ready 3D file.
-- STL and 3MF are the model formats named on the website.
+- STL and 3MF are the supported 3D model formats.
+- PNG and JPEG image files are also allowed as optional reference attachments.
 - Petrov's Workshop does not create 3D designs, design objects from scratch, or model new 3D files.
 - Hand engraving is a secondary service, currently performed by hand and limited to simple designs.
 - Do not present engraving as the main service or imply that complex engraving designs are accepted.
@@ -58,9 +59,9 @@ The form requests:
 - Email address.
 - Telephone number.
 - Description of the requested print.
-- Optional STL or 3MF 3D model.
+- Optional STL or 3MF 3D model, or PNG/JPEG reference image.
 
-The website currently states that optional uploaded files must not exceed 10 MB. Check the live website for current limits.
+The website currently states that optional uploaded files (STL, 3MF, PNG or JPEG) must not exceed 10 MB. Check the live website for current limits.
 
 For a useful request, customers should include:
 - The purpose of the part.
