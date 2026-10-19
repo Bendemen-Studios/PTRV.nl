@@ -1,6 +1,6 @@
 # Petrov's Workshop
 
-> Petrov's Workshop biedt 3D-printservice vanuit Hellevoetsluis, Zuid-Holland, Nederland. Klanten leveren zelf een printklaar 3D-bestand aan.
+> Petrov's Workshop biedt voornamelijk 3D-printservice vanuit Hellevoetsluis, Zuid-Holland, Nederland. Klanten leveren zelf een printklaar 3D-bestand aan. Graveren is aanvullend beschikbaar op beperkte schaal en gebeurt momenteel met de hand.
 
 ## Website
 - Homepage: https://ptrv.nl/
@@ -11,7 +11,8 @@
 - Contact en aanvraagformulier: https://ptrv.nl/contact
 
 ## Dienst
-- 3D-printen van door klanten aangeleverde printklare bestanden.
+- Hoofddienst: 3D-printen van door klanten aangeleverde printklare bestanden.
+- Aanvullende dienst: handmatig graveren van eenvoudige ontwerpen; ingewikkelde designs worden niet aangenomen.
 - Bestandsformaten voor 3D-modellen: STL en 3MF.
 - Mogelijke projecttypen zijn functionele accessoires, maatwerkonderdelen en prototypes, afhankelijk van printbaarheid en haalbaarheid.
 - Petrov's Workshop maakt geen 3D-ontwerpen en modelleert geen nieuwe 3D-bestanden.
