@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://ptrv.nl/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <url><loc>https://ptrv.nl/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://ptrv.nl/algemene-voorwaarden</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ptrv.nl/privacyverklaring</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ptrv.nl/cookiebeleid</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://ptrv.nl/betaal-en-retourbeleid</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ptrv.nl/disclaimer</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://ptrv.nl/imprint</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://ptrv.nl/contactgegevens</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
 </urlset>
