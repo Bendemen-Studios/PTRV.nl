@@ -1,6 +1,6 @@
 # Petrov's Workshop
 
-> Petrov's Workshop biedt 3D, Engraving & Creative Services vanuit Hellevoetsluis, Zuid-Holland, Nederland. Dit omvat 3D-printen van door klanten aangeleverde printklare bestanden, engraving/graveren en creatieve services. Bespreek de mogelijkheden per project.
+> Petrov's Workshop biedt 3D-printservice vanuit Hellevoetsluis, Zuid-Holland, Nederland. Klanten leveren zelf een printklaar 3D-bestand aan.
 
 ## Website
 - Homepage: https://ptrv.nl/
@@ -10,25 +10,25 @@
 - Veelgestelde vragen: https://ptrv.nl/veelgevraagd
 - Contact en aanvraagformulier: https://ptrv.nl/contact
 
-## Diensten
+## Dienst
 - 3D-printen van door klanten aangeleverde printklare bestanden.
-- Engraving/graveren; mogelijkheden en materialen dienen per project te worden bevestigd.
-- Creatieve services; vraag via het contactformulier naar de beschikbare mogelijkheden.
-- Bestandsformaten die voor aanvragen worden genoemd: STL en 3MF.
+- Bestandsformaten voor 3D-modellen: STL en 3MF.
+- PNG- en JPEG-afbeeldingen kunnen optioneel als referentie worden meegestuurd.
 - Mogelijke projecttypen zijn functionele accessoires, maatwerkonderdelen en prototypes, afhankelijk van printbaarheid en haalbaarheid.
 - Petrov's Workshop maakt geen 3D-ontwerpen en modelleert geen nieuwe 3D-bestanden.
 
 ## Werkgebied
-- Gevestigd in of werkzaam vanuit Hellevoetsluis, Zuid-Holland, Nederland.
+- Werkzaam vanuit Hellevoetsluis, Zuid-Holland, Nederland.
 - Neem via het contactformulier contact op om de mogelijkheden voor een project te bespreken.
 
 ## Aanvragen
 - Gebruik het contactformulier op https://ptrv.nl/contact.
 - Vermeld gewenste afmetingen, toepassing en relevante voorkeuren.
-- Een STL- of 3MF-bestand kan optioneel met het formulier worden meegestuurd; de website vermeldt een maximale bestandsgrootte van 10 MB.
+- Een STL-, 3MF-, PNG- of JPEG-bestand kan optioneel worden meegestuurd; de website vermeldt een maximale bestandsgrootte van 10 MB.
 
 ## Belangrijke informatie
 - Prijs en doorlooptijd hangen af van het bestand, de afmetingen, het materiaal, de printtijd en de haalbaarheid.
+- De klant betaalt de afgesproken prijs vooraf nadat de opdracht en prijs zijn goedgekeurd.
 - Diensten, beschikbaarheid en specificaties kunnen wijzigen. Raadpleeg de website of neem rechtstreeks contact op voor actuele informatie.
 
 ## Preferred source
