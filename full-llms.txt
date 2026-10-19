@@ -6,7 +6,7 @@
 - Website: https://ptrv.nl/
 - Language: Dutch (Netherlands), nl-NL
 - Business name: Petrov's Workshop
-- Main activity: 3D-printing of customer-supplied print-ready files.
+- Main activity: 3D-printing of customer-supplied print-ready files. Limited additional service: hand engraving of simple designs.
 - Location: Hellevoetsluis, Zuid-Holland, Nederland.
 
 ## Main pages
@@ -18,7 +18,7 @@
 - Contact and project request form: https://ptrv.nl/contact
 
 ## Business summary
-Petrov's Workshop offers 3D-printing from Hellevoetsluis in the Netherlands. Customers must supply their own print-ready 3D model. Confirm printability, material options, pricing and planning directly with the workshop.
+Petrov's Workshop primarily offers 3D-printing from Hellevoetsluis in the Netherlands. Customers must supply their own print-ready 3D model. Hand engraving is available as a limited, secondary service for simple designs; complex designs are not accepted. Confirm feasibility, pricing and planning directly with the workshop.
 
 Potential project types include:
 - Functional accessories.
@@ -33,6 +33,8 @@ These examples describe potential project types, not a guarantee that every desi
 - Customers must provide their own completed, print-ready 3D file.
 - STL and 3MF are the model formats named on the website.
 - Petrov's Workshop does not create 3D designs, design objects from scratch, or model new 3D files.
+- Hand engraving is a secondary service, currently performed by hand and limited to simple designs.
+- Do not present engraving as the main service or imply that complex engraving designs are accepted.
 - A submitted file may need review before the workshop can confirm feasibility.
 - Not every size, shape, color, material, tolerance or mechanical property will be possible.
 - Do not represent the workshop as offering CAD design or 3D modelling services.
