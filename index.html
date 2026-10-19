@@ -217,6 +217,10 @@
     .footer-logo img{width:46px;height:46px;object-fit:contain}
     .footer-brand strong{font-size:12px;letter-spacing:.04em;color:var(--bright)}
     .footer-brand p{font-size:11px;line-height:1.8;color:var(--muted);max-width:220px;margin:0}
+    .footer-socials{display:flex;align-items:center;gap:12px;margin-top:3px}
+    .footer-socials a{display:inline-flex;align-items:center;gap:9px;color:#938b7d;text-decoration:none;font-size:11px;transition:color .2s}
+    .footer-socials a:hover{color:var(--bright)}
+    .footer-socials svg{width:23px;height:23px;flex:none}
     .footer-brand small{font:9px 'DM Mono',monospace;color:#625d53;margin-top:16px}
     .footer-column{display:flex;flex-direction:column;align-items:flex-start;gap:13px}
     .footer-column h3{font-size:15px;margin:2px 0 5px;color:var(--white)}
@@ -384,6 +388,12 @@
       <a class="footer-logo" href="/" aria-label="Petrov's Workshop, naar home"><img src="/ptrworkshop_logo.png" alt="" width="46" height="46"></a>
       <strong>PETROV'S WORKSHOP</strong>
       <p>3D-printservice voor jouw eigen printklare STL- en 3MF-bestanden.</p>
+      <div class="footer-socials" aria-label="Sociale media">
+        <a href="https://www.instagram.com/ptrworkshop/" target="_blank" rel="noopener noreferrer" aria-label="Volg Petrov's Workshop op Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.6" cy="6.7" r="1.15" fill="currentColor"/></svg>
+          <span>Instagram</span>
+        </a>
+      </div>
       <small>© <span id="year">2026</span> Petrov's Workshop</small>
     </div>
     <div class="footer-column"><h3>Legal</h3>
