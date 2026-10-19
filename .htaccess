@@ -2,3 +2,6 @@ RewriteEngine On
 
 # Laat nette sectie-URL's doorlopen naar de one-page website.
 RewriteRule ^(diensten|portfolio|werkwijze|veelgevraagd|contact)/?$ /index.html [L]
+
+# Juridische en contactpagina's als aparte pagina's met nette URL's.
+RewriteRule ^(algemene-voorwaarden|privacyverklaring|cookiebeleid|betaal-en-retourbeleid|disclaimer|imprint|contactgegevens)/?$ /$1.html [L]
